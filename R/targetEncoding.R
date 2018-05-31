@@ -19,7 +19,6 @@ targetEncoding_fit <- function(dt, x, y){
   if(class(dt)[[1]]=="H2OFrame"){
     h2o.target_encode_create(dt = dt, x = x, y = y)
   }else if(class(dt)[[1]]=="data.table"){
-    setDT(dt)
     fit_list <- list()
     for(i in x){
       setkeyv(dt, i)
