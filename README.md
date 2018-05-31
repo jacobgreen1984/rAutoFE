@@ -1,7 +1,8 @@
 #### rAutoFE
-> title : Auto Feature Engineering in R
-> author : 2e Consulting DS Lab <jacobgreen1984@2e.co.kr>
-> feature engineering process : 
+- title : Auto Feature Engineering in R
+- author : 2e Consulting DS Lab <jacobgreen1984@2e.co.kr>
+
+#### feature engineering process  
 1) baseline model 
 2) variable importance 
 3) lagging/descriptiveStatistics(optional) 
