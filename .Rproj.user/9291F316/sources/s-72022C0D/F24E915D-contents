@@ -1,0 +1,38 @@
+library(devtools)
+remove.packages("rAutoFE")
+install_github("jacobgreen1984/rAutoFE")
+library(rAutoFE)
+
+library(data.table)
+tmp<- rAutoFE::churn
+fread(tmp,sep=",")
+
+read.table(header = TRUE, rAutoFE::churn,text = )
+read.csv(textConnection(rAutoFE::churn,"w"))
+
+load(rAutoFE::churn)
+load
+try(data(package = "rAutoFE") ) 
+read.file()
+tmp$State.Account.Length.Area.Code.Int.l.Plan.VMail.Plan.VMail.Message.Day.Mins.Day.Calls.Day.Charge.Eve.Mins.Eve.Calls.Eve.Charge.Night.Mins.Night.Calls.Night.Charge.Intl.Mins.Intl.Calls.Intl.Charge.CustServ.Calls.Churn.
+readClipboard(rAutoFE::churn)
+
+data(churn, package = "rAutoFE",)
+
+
+str(churn)
+readRDS(churn,file = )
+
+read.csv()
+
+readline(rAutoFE::churn, sep=",")
+system.file("data", "data", package = "testdat", mustWork = TRUE)
+
+system.file("data", "churn.rds", package = "rAutoFE")
+
+
+
+
+
+
+

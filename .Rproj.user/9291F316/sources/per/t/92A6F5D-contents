@@ -1,0 +1,42 @@
+# title : package_maker
+# author : jacob
+# desc : https://www.popit.kr/recycled-r/
+
+# 1 library ----
+library(devtools)
+library(roxygen2)
+
+# 2 make package directory  ----
+setwd("./INTERNAL/lib")
+create("rAutoFE")
+
+# 3 function 작성
+myfun.R
+
+# 4 DESCRIPTION 작성
+DESCRIPTION
+
+# 5 문서 작업
+#' @title
+#' @description
+#' @param
+#' @return
+#' @examples
+#' @export
+
+# 6 데이터 등록
+#churn <- load("data/churn.rda")
+churn <- read.csv("data/churn.csv")
+save(churn, file='data/churn.rda')
+
+# 7 문서 등록
+setwd("./rAutoFE")
+document()
+
+# 8 테스트
+setwd("..")
+install("rAutoFE")
+library(rAutoFE)
+rAutoFE::tmp
+
+

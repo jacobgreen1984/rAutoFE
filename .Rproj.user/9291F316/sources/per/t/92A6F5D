@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1527750620958.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "996899767",
+    "id" : "92A6F5D",
+    "lastKnownWriteTime" : 1527749840,
+    "last_content_update" : 1527749840,
+    "path" : "~/GitHub/package_maker.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "29,30",
+        "scrollLine" : "23"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
