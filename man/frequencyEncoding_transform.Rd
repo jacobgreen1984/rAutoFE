@@ -4,11 +4,25 @@
 \alias{frequencyEncoding_transform}
 \title{frequencyEncoding_transform}
 \usage{
-frequencyEncoding_transform(data, x = x, fit = fit)
+frequencyEncoding_transform(dt, x = x, fit = fit)
 }
 \examples{
-fit <- readRDS("fit.Rda")
-train <- frequencyEncoding_transform(data = train, x = x, fit = fit)
-valid <- frequencyEncoding_transform(data = valid, x = x, fit = fit)
-test  <- frequencyEncoding_transform(data = test, x = x, fit = fit)
+library(rAutoFE)
+library(data.table)
+data(churn, package = "rAutoFE")
+str(churn)
+data.table::setDT(churn)
+splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
+train <- splits[[1]]
+valid <- splits[[2]]
+test  <- splits[[3]]
+x = c("State","Area.Code")
+y = "Churn."
+fit <- frequencyEncoding_fit(dt = train, x = x)
+saveRDS(fit,"fit.rds")
+rm(fit)
+fit <- readRDS("fit.rds")
+train <- frequencyEncoding_transform(dt = train, x = x, fit = fit)
+valid <- frequencyEncoding_transform(dt = valid, x = x, fit = fit)
+test  <- frequencyEncoding_transform(dt = test, x = x, fit = fit)
 }

@@ -4,5 +4,5 @@
 \alias{dt_splitFrame}
 \title{dt_splitFrame}
 \usage{
-dt_splitFrame(data, ratio, seed)
+dt_splitFrame(dt, ratio, seed)
 }

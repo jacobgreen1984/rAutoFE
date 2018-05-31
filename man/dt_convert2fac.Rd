@@ -4,5 +4,5 @@
 \alias{dt_convert2fac}
 \title{dt_convert2fac}
 \usage{
-dt_convert2fac(data, columns)
+dt_convert2fac(dt, columns)
 }

@@ -4,18 +4,19 @@
 \alias{frequencyEncoding_fit}
 \title{frequencyEncoding_fit}
 \usage{
-frequencyEncoding_fit(data, x)
+frequencyEncoding_fit(dt, x)
 }
 \examples{
-require(data.table)
-data <- fread("data/churn.csv")
-data <- dt_convert2fac(data=data, columns=c("Churn.","State","Area.Code","Int.l.Plan","VMail.Plan"))
-splits <- dt_splitFrame(data=data, ratio = c(0.5, 0.2), seed=1234)
+library(rAutoFE)
+library(data.table)
+data(churn, package = "rAutoFE")
+str(churn)
+data.table::setDT(churn)
+splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
 train <- splits[[1]]
 valid <- splits[[2]]
 test  <- splits[[3]]
 x = c("State","Area.Code")
 y = "Churn."
-fit <- frequencyEncoding_fit(data = train, x = x)
-saveRDS(fit,"fit.Rda")
+fit <- frequencyEncoding_fit(dt = train, x = x)
 }
