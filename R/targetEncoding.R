@@ -6,15 +6,14 @@
 #' library(rAutoFE)
 #' library(data.table)
 #' data(churn, package = "rAutoFE")
-#' str(churn)
 #' data.table::setDT(churn)
-#' splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
+#' splits <- dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed=1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]
 #' x = c("State","Area.Code")
 #' y = "Churn."
-#' fit <- frequencyEncoding_fit(dt = train, x = x)
+#' fit <- rAutoFE::frequencyEncoding_fit(dt = train, x = x)
 #' @export
 targetEncoding_fit <- function(dt, x, y){
   if(class(dt)[[1]]=="H2OFrame"){
@@ -38,21 +37,20 @@ targetEncoding_fit <- function(dt, x, y){
 #' library(rAutoFE)
 #' library(data.table)
 #' data(churn, package = "rAutoFE")
-#' str(churn)
 #' data.table::setDT(churn)
-#' splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
+#' splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed=1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]
 #' x = c("State","Area.Code")
 #' y = "Churn."
-#' fit <- frequencyEncoding_fit(dt = train, x = x)
+#' fit <- rAutoFE::frequencyEncoding_fit(dt = train, x = x)
 #' saveRDS(fit,"fit.rds")
 #' rm(fit)
 #' fit <- readRDS("fit.rds")
-#' train <- frequencyEncoding_transform(dt = train, x = x, fit = fit)
-#' valid <- frequencyEncoding_transform(dt = valid, x = x, fit = fit)
-#' test  <- frequencyEncoding_transform(dt = test, x = x, fit = fit)
+#' train <- rAutoFE::frequencyEncoding_transform(dt = train, x = x, fit = fit)
+#' valid <- rAutoFE::frequencyEncoding_transform(dt = valid, x = x, fit = fit)
+#' test  <- rAutoFE::frequencyEncoding_transform(dt = test, x = x, fit = fit)
 #' @export
 targetEncoding_transform <- function(dt, x, y, fit){
   if(class(dt)[[1]]=="H2OFrame"){
