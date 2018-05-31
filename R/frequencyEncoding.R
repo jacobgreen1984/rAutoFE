@@ -16,6 +16,7 @@
 #' fit <- rAutoFE::frequencyEncoding_fit(dt = train, x = x)
 #' @export
 frequencyEncoding_fit <- function(dt, x){
+  setDT(dt)
   fit_list <- list()
   for(i in x){
     setkeyv(dt, i)
