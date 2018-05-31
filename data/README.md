@@ -5,5 +5,5 @@
 
 - churn.Rda, https://github.com/yhat/demo-churn-pred/blob/master/model/churn.csv
 
-- user_logs.Rda, https://www.kaggle.com/c/kkbox-churn-prediction-challenge/data
+
 
