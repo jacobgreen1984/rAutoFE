@@ -1,25 +1,26 @@
 #' @title frequencyEncoding_fit
-#' @description 
-#' @param 
-#' @return 
-#' @examples 
-#' require(data.table)
-#' data <- fread("data/churn.csv")
-#' data <- dt_convert2fac(data=data, columns=c("Churn.","State","Area.Code","Int.l.Plan","VMail.Plan"))
-#' splits <- dt_splitFrame(data=data, ratio = c(0.5, 0.2), seed=1234)
+#' @description
+#' @param
+#' @return
+#' @examples
+#' library(rAutoFE)
+#' library(data.table)
+#' data(churn, package = "rAutoFE")
+#' str(churn)
+#' data.table::setDT(churn)
+#' splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]
 #' x = c("State","Area.Code")
 #' y = "Churn."
-#' fit <- frequencyEncoding_fit(data = train, x = x)
-#' saveRDS(fit,"fit.Rda")
+#' fit <- frequencyEncoding_fit(dt = train, x = x)
 #' @export
-frequencyEncoding_fit <- function(data, x){
-  fit_list <- list()      
+frequencyEncoding_fit <- function(dt, x){
+  fit_list <- list()
   for(i in x){
-    setkeyv(data, i)
-    fit_list[[i]] <- data[, .(frequencyEncode_=.N), by=i]
+    setkeyv(dt, i)
+    fit_list[[i]] <- dt[, .(frequencyEncode_=.N), by=i]
     colnames(fit_list[[i]])[2] <- paste0(colnames(fit_list[[i]])[2], i)
   }
   return(fit_list)
@@ -27,22 +28,36 @@ frequencyEncoding_fit <- function(data, x){
 
 
 #' @title frequencyEncoding_transform
-#' @description 
-#' @param 
-#' @return 
-#' @examples 
-#' fit <- readRDS("fit.Rda")
-#' train <- frequencyEncoding_transform(data = train, x = x, fit = fit)
-#' valid <- frequencyEncoding_transform(data = valid, x = x, fit = fit)
-#' test  <- frequencyEncoding_transform(data = test, x = x, fit = fit)
+#' @description
+#' @param
+#' @return
+#' @examples
+#' library(rAutoFE)
+#' library(data.table)
+#' data(churn, package = "rAutoFE")
+#' str(churn)
+#' data.table::setDT(churn)
+#' splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
+#' train <- splits[[1]]
+#' valid <- splits[[2]]
+#' test  <- splits[[3]]
+#' x = c("State","Area.Code")
+#' y = "Churn."
+#' fit <- frequencyEncoding_fit(dt = train, x = x)
+#' saveRDS(fit,"fit.rds")
+#' rm(fit)
+#' fit <- readRDS("fit.rds")
+#' train <- frequencyEncoding_transform(dt = train, x = x, fit = fit)
+#' valid <- frequencyEncoding_transform(dt = valid, x = x, fit = fit)
+#' test  <- frequencyEncoding_transform(dt = test, x = x, fit = fit)
 #' @export
-frequencyEncoding_transform <- function(data, x=x, fit=fit){
+frequencyEncoding_transform <- function(dt, x=x, fit=fit){
   for(i in x){
     x_map <- fit[[i]]
     setkeyv(x_map, i)
-    setkeyv(data, i)
-    data <- x_map[data]
+    setkeyv(dt, i)
+    dt <- x_map[dt]
   }
-  return(data)
+  return(dt)
 }
 
