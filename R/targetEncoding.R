@@ -3,12 +3,10 @@
 #' @param 
 #' @return 
 #' @examples 
-#' source("INTERNAL/auto_fe/R/user_functions.R")
 #' require(data.table)
 #' require(h2o)
 #' h2o.init()
-#' path = c("./INTERNAL/auto_fe/data")
-#' data <- readRDS(file.path(path,"churn.Rda"))
+#' data <- fread("data/churn.csv")
 #' data <- dt_convert2fac(data=data, columns=c("Churn.","State","Area.Code","Int.l.Plan","VMail.Plan"))
 #' splits <- dt_splitFrame(data=data, ratio = c(0.5, 0.2), seed=1234)
 #' train <- splits[[1]]
@@ -17,7 +15,7 @@
 #' x = c("State","Area.Code")
 #' y = "Churn."
 #' fit <- targetEncoding_fit(data = train, x = x, y = y)
-#' saveRDS(fit,"./bak/fit.Rda")
+#' saveRDS(fit,"fit.Rda")
 #' @export
 targetEncoding_fit <- function(data, x, y){
   if(class(data)[[1]]=="H2OFrame"){
@@ -38,7 +36,7 @@ targetEncoding_fit <- function(data, x, y){
 #' @param 
 #' @return 
 #' @examples 
-#' fit <- readRDS("./bak/fit.Rda")
+#' fit <- readRDS("fit.Rda")
 #' train <- targetEncoding_transform(data = train, x = x, y = y, fit = fit)
 #' valid <- targetEncoding_transform(data = valid, x = x, y = y, fit = fit)
 #' test  <- targetEncoding_transform(data = test, x = x, y = y, fit = fit)

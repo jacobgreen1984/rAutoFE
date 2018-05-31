@@ -7,7 +7,7 @@
 targetEncoding_transform(data, x, y, fit)
 }
 \examples{
-fit <- readRDS("./bak/fit.Rda")
+fit <- readRDS("fit.Rda")
 train <- targetEncoding_transform(data = train, x = x, y = y, fit = fit)
 valid <- targetEncoding_transform(data = valid, x = x, y = y, fit = fit)
 test  <- targetEncoding_transform(data = test, x = x, y = y, fit = fit)

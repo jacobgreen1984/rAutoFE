@@ -7,7 +7,7 @@
 frequencyEncoding_transform(data, x = x, fit = fit)
 }
 \examples{
-fit <- readRDS("./bak/fit.Rda")
+fit <- readRDS("fit.Rda")
 train <- frequencyEncoding_transform(data = train, x = x, fit = fit)
 valid <- frequencyEncoding_transform(data = valid, x = x, fit = fit)
 test  <- frequencyEncoding_transform(data = test, x = x, fit = fit)
