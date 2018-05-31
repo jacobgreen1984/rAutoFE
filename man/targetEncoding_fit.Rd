@@ -10,13 +10,12 @@ targetEncoding_fit(dt, x, y)
 library(rAutoFE)
 library(data.table)
 data(churn, package = "rAutoFE")
-str(churn)
 data.table::setDT(churn)
-splits <- dt_splitFrame(data=churn, ratio = c(0.5, 0.2), seed=1234)
+splits <- dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed=1234)
 train <- splits[[1]]
 valid <- splits[[2]]
 test  <- splits[[3]]
 x = c("State","Area.Code")
 y = "Churn."
-fit <- frequencyEncoding_fit(dt = train, x = x)
+fit <- rAutoFE::frequencyEncoding_fit(dt = train, x = x)
 }
