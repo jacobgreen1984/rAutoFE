@@ -11,11 +11,11 @@ library(rAutoFE)
 library(data.table)
 data(churn, package = "rAutoFE")
 data.table::setDT(churn)
-splits <- dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed=1234)
+splits <- dt_splitFrame(dt = churn, ratio = c(0.5, 0.2), seed = 1234)
 train <- splits[[1]]
 valid <- splits[[2]]
 test  <- splits[[3]]
 x = c("State","Area.Code")
 y = "Churn."
-fit <- rAutoFE::frequencyEncoding_fit(dt = train, x = x)
+fit <- rAutoFE::targetEncoding_fit(dt = train, x = x, y = y)
 }
