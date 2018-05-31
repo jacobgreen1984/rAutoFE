@@ -1,7 +1,16 @@
 #### rAutoFE
 - title : Auto Feature Engineering in R
 - author : 2e Consulting DS Lab <jacobgreen1984@2e.co.kr>
-- feature engineering process : baseline model -> variable importance -> (lagging/descriptiveStatistics) -> numeric tansform -> numeric  binning -> WoE -> categorical encoding(frequency, target) -> interaction features -> error analysis
+- feature engineering process : 
+1) baseline model 
+2) variable importance 
+3) lagging/descriptiveStatistics(optional) 
+4) numeric tansform 
+5) numeric binning 
+6) weight of evidence 
+7) categorical encoding(frequency, target) 
+8) interaction features 
+9) error analysis
 
 
 #### install 
