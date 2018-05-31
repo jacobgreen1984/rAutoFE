@@ -20,7 +20,7 @@ frequencyEncoding_fit <- function(dt_, x){
   fit_list <- list()
   for(i in x){
     setkeyv(dt_, i)
-    fit_list[[i]] <- dt_[, list(frequencyEncode_=.N), by=i]
+    fit_list[[i]] <- dt_[, .(frequencyEncode_=.N), by=i]
     colnames(fit_list[[i]])[2] <- paste0(colnames(fit_list[[i]])[2], i)
   }
   return(fit_list)
