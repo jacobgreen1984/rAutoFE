@@ -21,7 +21,3 @@ install_github("jacobgreen1984/rAutoFE")
 library(rAutoFE)
 ```
 
-#### usage
-```r
-?rAutoFE::frequencyEncoding_fit()
-```
