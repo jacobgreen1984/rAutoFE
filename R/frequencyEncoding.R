@@ -1,13 +1,13 @@
 #' @title frequencyEncoding_fit
-#' @description
-#' @param
-#' @return
+#' @description train frequen-based encoding for categorical features
+#' @param dt data.table object
+#' @param x character vector of independet variables
 #' @examples
 #' library(rAutoFE)
 #' library(data.table)
 #' data(churn, package = "rAutoFE")
 #' data.table::setDT(churn)
-#' splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed = 1234)
+#' splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.3), seed = 1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]
@@ -27,15 +27,16 @@ frequencyEncoding_fit <- function(dt, x){
 
 
 #' @title frequencyEncoding_transform
-#' @description
-#' @param
-#' @return
+#' @description transform dataset using fit
+#' @param dt data.table object
+#' @param x character vector of independet variables
+#' @param fit frequencyEncoding_fit object
 #' @examples
 #' library(rAutoFE)
 #' library(data.table)
 #' data(churn, package = "rAutoFE")
 #' data.table::setDT(churn)
-#' splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed = 1234)
+#' splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.3), seed = 1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]
@@ -49,7 +50,7 @@ frequencyEncoding_fit <- function(dt, x){
 #' valid <- rAutoFE::frequencyEncoding_transform(dt = valid, x = x, fit = fit)
 #' test  <- rAutoFE::frequencyEncoding_transform(dt = test, x = x, fit = fit)
 #' @export
-frequencyEncoding_transform <- function(dt, x=x, fit=fit){
+frequencyEncoding_transform <- function(dt, x, fit){
   for(i in x){
     x_map <- fit[[i]]
     setkeyv(x_map, i)

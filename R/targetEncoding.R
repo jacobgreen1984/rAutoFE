@@ -1,13 +1,14 @@
 #' @title targetEncoding_fit
-#' @description
-#' @param
-#' @return
+#' @description train for target feature encoding
+#' @param dt data.table object
+#' @param x character vector of independet variables
+#' @param y character string of dependent variable
 #' @examples
 #' library(rAutoFE)
 #' library(data.table)
 #' data(churn, package = "rAutoFE")
 #' data.table::setDT(churn)
-#' splits <- dt_splitFrame(dt = churn, ratio = c(0.5, 0.2), seed = 1234)
+#' splits <- dt_splitFrame(dt = churn, ratio = c(0.5, 0.3), seed = 1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]
@@ -30,15 +31,17 @@ targetEncoding_fit <- function(dt, x, y){
 
 
 #' @title targetEncoding_transform
-#' @description
-#' @param
-#' @return
+#' @description transform dataset using fit
+#' @param dt data.table object
+#' @param x character vector of independet variables
+#' @param y character string of dependent variable
+#' @param fit targetEncoding_fit object
 #' @examples
 #' library(rAutoFE)
 #' library(data.table)
 #' data(churn, package = "rAutoFE")
 #' data.table::setDT(churn)
-#' splits <- rAutoFE::dt_splitFrame(dt = churn, ratio = c(0.5, 0.2), seed = 1234)
+#' splits <- rAutoFE::dt_splitFrame(dt = churn, ratio = c(0.5, 0.3), seed = 1234)
 #' train <- splits[[1]]
 #' valid <- splits[[2]]
 #' test  <- splits[[3]]

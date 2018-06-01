@@ -6,3 +6,11 @@
 \usage{
 dt_convert2fac(dt, columns)
 }
+\arguments{
+\item{dt}{data.table object}
+
+\item{columns}{character vector}
+}
+\description{
+convert all selected features to factor
+}

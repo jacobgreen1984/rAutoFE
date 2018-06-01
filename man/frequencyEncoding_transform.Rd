@@ -4,14 +4,24 @@
 \alias{frequencyEncoding_transform}
 \title{frequencyEncoding_transform}
 \usage{
-frequencyEncoding_transform(dt, x = x, fit = fit)
+frequencyEncoding_transform(dt, x, fit)
+}
+\arguments{
+\item{dt}{data.table object}
+
+\item{x}{character vector of independet variables}
+
+\item{fit}{frequencyEncoding_fit object}
+}
+\description{
+transform dataset using fit
 }
 \examples{
 library(rAutoFE)
 library(data.table)
 data(churn, package = "rAutoFE")
 data.table::setDT(churn)
-splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.2), seed = 1234)
+splits <- rAutoFE::dt_splitFrame(dt=churn, ratio = c(0.5, 0.3), seed = 1234)
 train <- splits[[1]]
 valid <- splits[[2]]
 test  <- splits[[3]]

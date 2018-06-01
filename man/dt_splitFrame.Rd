@@ -6,3 +6,13 @@
 \usage{
 dt_splitFrame(dt, ratio, seed)
 }
+\arguments{
+\item{dt}{data.table object}
+
+\item{ratio}{numeric vector}
+
+\item{seed}{integer}
+}
+\description{
+data split using data.table
+}

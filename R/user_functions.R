@@ -1,8 +1,7 @@
 #' @title dt_convert2fac
-#' @description
-#' @param
-#' @return
-#' @examples
+#' @description convert all selected features to factor
+#' @param dt data.table object
+#' @param columns character vector
 #' @export
 dt_convert2fac <- function(dt, columns){
   change_columns <- columns
@@ -12,10 +11,10 @@ dt_convert2fac <- function(dt, columns){
 
 
 #' @title dt_splitFrame
-#' @description
-#' @param
-#' @return
-#' @examples
+#' @description data split using data.table
+#' @param dt data.table object
+#' @param ratio numeric vector
+#' @param seed integer
 #' @export
 dt_splitFrame <- function(dt, ratio, seed){
   set.seed(seed)
